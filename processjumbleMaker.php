@@ -43,12 +43,13 @@
             $retval = str_shuffle($retval);
             return $retval;
             return $data;
+            $words[] = $validateWord($_POST['word1'], "Word 1");
+            $words[] = $validateWord($_POST['word2'], "Word 2");
+            $words[] = $validateWord($_POST['word3'], "Word 3");
+            $words[] = $validateWord($_POST['word4'], "Word 4");   
         }
+
         
-        $words[] = $validateWord($_POST['word1'], "Word 1");
-        $words[] = $validateWord($_POST['word2'], "Word 2");
-        $words[] = $validateWord($_POST['word3'], "Word 3");
-        $words[] = $validateWord($_POST['word4'], "Word 4");
         if ($errorCount) {
             echo 'Please use the "Back" button to re-enter any missing data';
         } else {
@@ -57,6 +58,7 @@
                 echo 'Word ' . ++$wordNum . ": $word<br>\n";
             }
         }
+        
         
     ?>
 </body>
