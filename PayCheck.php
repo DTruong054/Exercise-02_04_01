@@ -15,12 +15,12 @@
     //Getting stuff from HTML
         $hourWorked = $_POST['work'];
         $wage = $_POST['wage'];
-        $pastLim = $hourWorked - 40 + .5 - 1;
+        $pastLim = $hourWorked - 40;
 
 
         if ($hourWorked > 40) {
             //If hours are more then 40...
-            $overtime = $wage * $hourWorked + $pastLim;
+            $overtime = $wage * $hourWorked * 1.025;
             echo "$overtime";
         } else {
             //If hours are less then 40...
