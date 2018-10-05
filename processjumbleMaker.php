@@ -11,7 +11,7 @@
 <body>
     <h2>Process Jumble Maker</h2>
     <?php
-            $errorCount = 0;
+           $errorCount = 0;
             $words = array();
             function displayError($fieldName, $errorMsg) {
                 global $errorCount;
