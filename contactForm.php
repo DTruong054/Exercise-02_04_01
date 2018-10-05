@@ -11,6 +11,7 @@
 <body>
     <h2>Contact Form</h2>
     <?php
+    //Variables
        $showForm = true;
             $errorCount = 0;
             $sender = "";
@@ -20,19 +21,23 @@
             function validateInput($data, $fieldName) {
                 global $errorCount;
                 if (empty($data)) {
+                    //if the form is empty...
                     echo "\"$fieldName\" is a required field.<br>\n";
                     ++$errorCount;
                     $retval = "";
                 }
                 else {
+                    //If not empty clean up string
                     $retval = trim($data);
                     $retval = stripslashes($retval);
                 }
                 return $retval;
             }
             function validateEmail($data, $fieldName) {
+                //Validation for the email
                 global $errorCount;
                 if (empty($data)) {
+                    //If the email is empty add an error and send text
                     echo "\"$fieldName\" is a required field.<br>\n";
                     ++$errorCount;
                     $retval = "";
@@ -40,6 +45,7 @@
                 else {
                     $retval = trim($data);
                     $retval = stripslashes($retval);
+                    //Regex to see if email is real
                     $pattern = "/^[\w-]+(\.[\w-]+)*@" . "[\w-]+(\.[\w-]+)*" . "(\.[a-z]{2,})$/i";
                     if (preg_match($pattern, $retval) == 0) {
                         echo "\"$fieldName\" is not a valid e-mail address.<br>\n";
@@ -77,6 +83,7 @@
                 }
             }
             if($showForm) {
+                //If form has any erros in ask user to go back
                 if ($errorCount > 0) {
                     echo "<p>Please re-enter the form information below.</p>\n";
                 }
@@ -85,7 +92,7 @@
             else {
                 $senderAddress = "$sender <$email>";
                 $headers = "From: $senderAddress\nCC:$senderAddress";
-                $result = mail("EBoblett949@west-mec.org", $subject, $message, $headers);
+                $result = mail("Buckler@west-mec.org", $subject, $message, $headers);
                 if($result) {
                     echo "<p>Your message has been sent. Thank you, " . $sender . ".</p>\n";
                 }

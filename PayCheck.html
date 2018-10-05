@@ -12,7 +12,7 @@
 </head>
 
 <style>
-    
+    /* Styles for html */
     body{
         background-color: #808080;
     }
@@ -48,11 +48,10 @@
         text-align: center;
     }
 
-
-
-
-
-
+    .button{
+        background: rgb(60,179,113);
+        padding: 0.3em 1.2em;
+    }
 
 </style>
 
@@ -64,8 +63,8 @@
             <p id="p1"><input type="text" name="work" placeholder=" Hours worked"></p>
             <p id="p2"><input type="text" name="wage" placeholder="Hourly Wage"></p>
             <div id="div2";>
-                <input type="reset" name="reset" value="Clear">
-                <input type="submit" name="submit" value="Submit">
+                <input type="reset" name="reset" value="Clear" class="button" style="margin-right: 0.2em;">
+                <input type="submit" name="submit" value="Submit" class="button">
             </div>
         </form>
     </section>
